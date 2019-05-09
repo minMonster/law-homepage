@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-home-phone</title>
+    <desc>Created with Sketch.</desc>
+    <g id="事务所web端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="详情页" transform="translate(-443.000000, -800.000000)">
+            <g id="Group-22" transform="translate(410.000000, 181.000000)">
+                <g id="ic-home-phone" transform="translate(31.000000, 617.000000)">
+                    <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"></rect>
+                    <path d="M16.5452113,14.0865418 C15.4948169,14.0865418 14.726,15.0170605 13.8169014,15.0170605 C12.9084507,15.0170605 8.81746479,10.9214697 8.81746479,9.90244957 C8.81746479,8.88682997 9.72546479,8.39308357 9.72546479,7.34492795 C9.72546479,6.59181556 6.99825352,2 5.86256338,2 C4.72678873,1.999683 2,4.06380403 2,5.95164265 C2,11.4727378 11.942338,21.9924784 18.1355493,21.9924784 C19.8409014,21.9924784 21.9992394,20.159683 21.9992394,18.0397406 C21.9992394,17.3129683 17.5674648,14.0865418 16.5452113,14.0865418 Z" id="Fill-1" fill="#687481"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

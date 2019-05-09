@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="16px" viewBox="0 0 20 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-home-email</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.00173410405 0.0117431193 19.9977457 0.0117431193 19.9977457 15.9707009 0.00173410405 15.9707009"></polygon>
+    </defs>
+    <g id="事务所web端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="详情页" transform="translate(-443.000000, -850.000000)">
+            <g id="Group-22" transform="translate(410.000000, 181.000000)">
+                <g id="ic-home-email" transform="translate(31.000000, 665.000000)">
+                    <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"></rect>
+                    <g id="youxiang" transform="translate(2.000000, 4.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Clip-2"></g>
+                        <path d="M1.9999711,0.0117431193 L17.997659,0.0117431193 C19.0890173,0.0117431193 19.9838439,0.897174312 19.9977457,1.98226789 L10.0022543,7.55555229 L0.00924855491,1.98925505 C0.0185260116,0.89946422 0.90632948,0.0117431193 1.9999711,0.0117431193 Z M0.00924855491,4.12183486 L0,13.9766606 C0,15.0734385 0.899450867,15.9707009 1.9999711,15.9707009 L17.997659,15.9707009 C19.0982948,15.9707009 19.9977457,15.0734385 19.9977457,13.9766606 L19.9977457,4.11713761 L10.2380925,9.42975413 C10.0878324,9.51198532 9.90754335,9.51198532 9.75953757,9.42975413 L0.00924855491,4.12183486 Z" id="Fill-1" fill="#687481" mask="url(#mask-2)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

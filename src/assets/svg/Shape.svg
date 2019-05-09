@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="6px" height="9px" viewBox="0 0 6 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <g id="事务所web端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.65">
+        <g id="列表页" transform="translate(-1133.000000, -1343.000000)" fill="#000000">
+            <g id="Group" transform="translate(771.000000, 1333.000000)">
+                <path d="M367.468565,10 C367.356269,10 367.242804,10.0374319 367.148054,10.1122957 L362.190669,14.0999616 C362.070185,14.1970505 362,14.3432688 362,14.4988451 C362,14.6532517 362.070185,14.8006397 362.190669,14.8965589 L367.126999,18.8631694 C367.346911,19.0398011 367.668592,19.0047087 367.845223,18.7847964 C368.021855,18.564884 367.986763,18.2432037 367.76685,18.066572 L363.326493,14.4988451 L367.789076,10.908893 C368.008988,10.7322613 368.04408,10.410581 367.867449,10.1906687 C367.765681,10.0655058 367.618293,10 367.468565,10 L367.468565,10 Z" id="Shape" transform="translate(364.990000, 14.487860) scale(-1, -1) translate(-364.990000, -14.487860) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
