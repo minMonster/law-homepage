@@ -3,30 +3,29 @@
     <div class='v-company-message'>
         <div class="container">
             <div class="l-box">
-                <p class="title">This is the name and slogan of our company.</p>
-                <p class="info">Here are some comments from our website to our partners in the global lawyer
-                    industry</p>
-                <div class="slogan">
-                    <img src="" alt="">
-                    <p>This is the name and slogan of our company.</p>
-                </div>
+                <p class="title">HOW TO JOIN ANTSRCH.COM ?</p>
+                <p class="info">Cooperation with more than 40,000 law firms and business service companies in China.</p>
+<!--                <div class="slogan">-->
+<!--                    &lt;!&ndash;<img src="" alt="">&ndash;&gt;-->
+<!--                    <p>This is the name and slogan of our company.</p>-->
+<!--                </div>-->
             </div>
             <div class="r-box">
                 <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm"
                          class="demo-ruleForm">
-                    <el-form-item prop="youName">
-                        <el-input placeholder="Please enter your name" v-model="ruleForm.youName"></el-input>
+                    <el-form-item prop="name">
+                        <el-input placeholder="Name" v-model="ruleForm.name"></el-input>
                     </el-form-item>
-                    <el-form-item prop="youName">
-                        <el-input placeholder="Please enter your contact information."
-                                  v-model="ruleForm.youName"></el-input>
+                    <el-form-item prop="contact_information">
+                        <el-input placeholder="Email Address"
+                                  v-model="ruleForm.contact_information"></el-input>
                     </el-form-item>
-                    <el-form-item prop="youName">
-                        <el-input placeholder="Please enter the consultation content"
-                                  v-model="ruleForm.youName"></el-input>
+                    <el-form-item prop="consultation_content">
+                        <el-input placeholder="Message"
+                                  v-model="ruleForm.consultation_content"></el-input>
                     </el-form-item>
                     <el-form-item>
-                        <el-button circle type="primary" @click="onSubmit">joint us</el-button>
+                        <el-button circle type="primary" @click="onSubmit('ruleForm')">Join Us</el-button>
                     </el-form-item>
                 </el-form>
             </div>
@@ -35,6 +34,8 @@
 </template>
 
 <script>
+  import Api from '@/api'
+
   export default {
     name: 'v-company-message',
     data () {
@@ -45,8 +46,14 @@
           age: ''
         },
         rules: {
-          youName: [
-            {validator: true, trigger: 'blur'}
+          name: [
+            {required: true, trigger: 'blur', message: 'Name is required'}
+          ],
+          contact_information: [
+            {required: true, trigger: 'blur', message: 'Email Address is required'}
+          ],
+          consultation_content: [
+            {required: true, trigger: 'blur', message: 'Message is required'}
           ]
         }
       }
@@ -55,7 +62,13 @@
       onSubmit (formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!')
+            Api.post('/add-message', {...this.ruleForm}).then(res => {
+              console.log(res)
+              this.$message({
+                message: 'submitted successfully! ',
+                type: 'success'
+              });
+            })
           } else {
             console.log('error submit!!')
             return false
@@ -138,5 +151,12 @@
                 }
             }
         }
+    }
+    .el-form-item__error {
+        font-size: 20px;
+        padding-left: 30px;
+    }
+    .el-icon-circle-close {
+        font-size: 20px;
     }
 </style>

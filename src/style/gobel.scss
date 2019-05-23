@@ -8,6 +8,7 @@ p, a, div, span {
 
 body {
   background: #14202C;
+  min-width: 1160px;
 }
 a {
   text-decoration-line: none;
@@ -22,4 +23,10 @@ a {
 .container-full {
   width: 100%;
   padding: 0 $container-padding;
+}
+
+.ell {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

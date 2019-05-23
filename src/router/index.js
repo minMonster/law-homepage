@@ -22,6 +22,12 @@ const router = new VueRouter({
       path: '/law-detail',
       component: resolve => require(['@/views/law-detail.vue'], resolve),
       meta: {title: 'list-detail'}
+    },
+    {
+      name: 'contact-us',
+      path: '/contact-us',
+      component: resolve => require(['@/views/contact-us.vue'], resolve),
+      meta: {title: 'contact us'}
     }
   ]
 });

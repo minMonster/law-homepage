@@ -5,7 +5,8 @@
             <div class="info">
                 <el-image
                         style="min-width: 240px;max-width: 240px; height: 180px"
-                        :src="require('../assets/img-list-one.png')"
+                        :src="detail.logo?'../'+detail.logo:'../image/img-list-one.png'"
+                        fit="contain"
                 ></el-image>
                 <div class="info-r">
                     <div class="title">{{detail.name}}</div>
@@ -26,7 +27,7 @@
             </p>
             <p>
                 <svg-icon icon-class="ic-home-service"></svg-icon>
-                {{handleService(detail.service)}}
+                {{detail.service}}
             </p>
             <p>
                 <svg-icon icon-class="ic-home-address"></svg-icon>
@@ -42,7 +43,7 @@
             </p>
             <p>
                 <svg-icon icon-class="ic-home-web"></svg-icon>
-                <a :href="detail.website">{{detail.website}}</a></p>
+                <a target="_blank" :href="'http://'+detail.website">{{detail.website}}</a></p>
         </div>
         <el-divider></el-divider>
         <el-button @click="$router.go(-1)">Back</el-button>
@@ -85,6 +86,7 @@
 </script>
 <style rel="stylesheet/scss" lang="scss">
     .law-detail {
+        margin-top: 70px;
         background-color: #fff;
         padding: 40px 30px;
         margin-bottom: 100px;
@@ -152,9 +154,13 @@
             height: 60px;
             border-radius: 30px;
             width: 200px;
-            color: #fff;
             font-size: 16px;
-            background: linear-gradient(to left, #2A39F0, #CD3EF6);
+            color: #666;
+            background: #E5E5E7;
+            &:hover {
+                color: #fff;
+                background: linear-gradient(to left, #2A39F0, #CD3EF6);
+            }
         }
         .el-divider {
             margin: 40px 0;

@@ -1,84 +1,93 @@
 <!-- crated：2019/5/3  author：Monster  -->
 <template>
-    <div class='list-page container'>
-        <div class="select-box">
-            <el-select :loading="countryLoading" v-model="selectCountry" placeholder="Please select country">
-                <el-option-group
-                        v-for="group in optionsArea"
-                        :key="group.name"
-                        :label="group.name">
-                    <el-option
-                            v-for="item in group.country"
-                            :key="item._id"
-                            :label="item.name"
-                            :value="item._id + '___' + item.name"
-                    >
-                    </el-option>
-                </el-option-group>
-            </el-select>
-            <el-select :loading="serviceLoading" v-model="selectService" placeholder="Please select service">
-                <el-option
-                        v-for="item in optionsService"
-                        :key="item._id"
-                        :label="item.name"
-                        :value="item._id + '___' + item.name">
-                </el-option>
-            </el-select>
-        </div>
-        <el-divider></el-divider>
-        <div class="breadcrumbs">
-            <el-breadcrumb separator-class="el-icon-arrow-right">
-                <el-breadcrumb-item>Country</el-breadcrumb-item>
-                <el-breadcrumb-item>{{selectCountryItem.name}}</el-breadcrumb-item>
-            </el-breadcrumb>
-            <el-breadcrumb separator-class="el-icon-arrow-right">
-                <el-breadcrumb-item>Country</el-breadcrumb-item>
-                <el-breadcrumb-item>{{selectServiceItem.name}}</el-breadcrumb-item>
-            </el-breadcrumb>
-        </div>
-        <div class="law-list">
-            <div class="card" v-for="item in lawList" :key="item.name">
-                <el-image
-                        style="min-width: 160px;max-width: 160px; height: 160px"
-                        :src="require('../assets/img-list-one.png')"
-                ></el-image>
-                <div class="l-box">
-                    <div class="title">
-                        <span>{{item.name}}</span>
-                    </div>
-                    <p class="address">
-                        <svg-icon icon-class="ic-home-address"></svg-icon>
-                        {{item.address}}
-                    </p>
-                    <p class="server">
-                        <svg-icon icon-class="ic-home-service"></svg-icon>
-                        {{handleService(item.service)}}
-                    </p>
-                    <a class="to-href" target="_blank" :href="item.website">
-                        <svg-icon icon-class="ic-home-web"></svg-icon>
-                        {{item.website}}</a>
-                </div>
-                <div class="r-box">
-                    <el-button @click="$router.push({path: 'law-detail', query: {id: item._id}})">View Law Firm
-                        Profile
-                    </el-button>
-                </div>
+    <div class='list-page'>
+        <div class="container">
+            <div class="select-box">
+                <el-select :loading="countryLoading" v-model="selectCountry" placeholder="Please select country">
+                    <el-option-group
+                            v-for="group in optionsArea"
+                            :key="group.name"
+                            :label="group.name">
+                        <el-option
+                                v-for="item in group.country"
+                                :key="item._id"
+                                :label="item.name"
+                                :value="item._id + '___' + item.name"
+                        >
+                        </el-option>
+                    </el-option-group>
+                </el-select>
+                <!--<el-select :loading="serviceLoading" v-model="selectService" placeholder="Please select service">-->
+                <!--<el-option-->
+                <!--v-for="item in optionsService"-->
+                <!--:key="item._id"-->
+                <!--:label="item.name"-->
+                <!--:value="item._id + '___' + item.name">-->
+                <!--</el-option>-->
+                <!--</el-select>-->
             </div>
-            <el-pagination
-                    background
-                    layout="prev, pager, next"
-                    :total="total"
-                    @current-change="currentChange">
-            </el-pagination>
+            <el-divider></el-divider>
+            <div class="breadcrumbs">
+                <el-breadcrumb separator-class="el-icon-arrow-right">
+                    <el-breadcrumb-item>Country</el-breadcrumb-item>
+                    <el-breadcrumb-item>{{selectCountryItem.name}}</el-breadcrumb-item>
+                </el-breadcrumb>
+                <!--<el-breadcrumb separator-class="el-icon-arrow-right">-->
+                    <!--<el-breadcrumb-item>Country</el-breadcrumb-item>-->
+                    <!--<el-breadcrumb-item>{{selectServiceItem.name}}</el-breadcrumb-item>-->
+                <!--</el-breadcrumb>-->
+            </div>
+            <div class="law-list">
+                <div class="card" v-for="item in lawList" :key="item.name">
+                    <el-image
+                            style="min-width: 160px;max-width: 160px; height: 160px"
+                            :src="item.logo?'../'+item.logo:'../image/img-list-one.png'"
+                            fit="contain"
+                    ></el-image>
+                    <div class="l-box">
+                        <div class="title ell">
+                            <span>{{item.name}}</span>
+                        </div>
+                        <p class="address ell">
+                            <svg-icon icon-class="ic-home-address"></svg-icon>
+                            {{item.address}}
+                        </p>
+                        <p class="server ell">
+                            <svg-icon icon-class="ic-home-service"></svg-icon>
+                            {{item.service}}
+                        </p>
+                        <a class="to-href" target="_blank" :href="item.website">
+                            <svg-icon icon-class="ic-home-web"></svg-icon>
+                            {{item.website}}</a>
+                    </div>
+                    <div class="r-box">
+                        <el-button @click="$router.push({path: 'law-detail', query: {id: item._id}})">View Law Firm
+                            Profile
+                        </el-button>
+                    </div>
+                </div>
+                <el-pagination
+                        background
+                        layout="prev, pager, next"
+                        :total="total"
+                        @current-change="currentChange">
+                </el-pagination>
+            </div>
         </div>
+        <company-message>
+        </company-message>
     </div>
 </template>
 
 <script>
   import Api from '@/api'
+  import CompanyMessage from '@/views/company-message.vue'
 
   export default {
     name: 'list-page',
+    components: {
+      CompanyMessage
+    },
     data () {
       return {
         selectCountry: '',
@@ -124,12 +133,27 @@
       }
     },
     created () {
+      window.scrollTo(0, 0)
       if (this.$route.query.country) {
         Api.get('/area-list').then(res => {
           this.optionsArea = res.data.data
+          this.optionsArea.unshift({
+            '_id': '',
+            'name': 'all',
+            'created_time': 1557854932,
+            'country': [
+              {
+                '_id': '',
+                'name': 'all',
+                'area': '',
+                'created_time': 1557854932,
+                '__v': 0
+              }
+            ]
+          })
           this.countryLoading = false
           this.selectCountry = this.$route.query.country
-          this.getList()
+          // this.getList()
         })
         Api.get('/service-list').then(res => {
           this.serviceLoading = false
@@ -138,6 +162,22 @@
       } else {
         Api.get('/area-list').then(res => {
           this.optionsArea = res.data.data
+          let afterItem = this.optionsArea.pop();
+          this.optionsArea.unshift(afterItem);
+          this.optionsArea.unshift({
+            '_id': '',
+            'name': 'All',
+            'created_time': 1557854932,
+            'country': [
+              {
+                '_id': '',
+                'name': 'All',
+                'area': '',
+                'created_time': 1557854932,
+                '__v': 0
+              }
+            ]
+          })
           this.countryLoading = false
         })
         Api.get('/service-list').then(res => {
@@ -220,6 +260,7 @@
                 padding-right: 30px;
                 margin-bottom: 30px;
                 .l-box {
+                    max-width: 556px;
                     svg {
                         margin-right: 10px;
                     }
@@ -344,5 +385,12 @@
 
     .list-page .breadcrumbs .el-breadcrumb .el-icon-arrow-right {
         color: #606266;
+    }
+    .el-scrollbar__bar.is-vertical {
+        opacity: 1;
+        width: 15px;
+        .el-scrollbar__thumb {
+            background-color: rgba(0, 0, 0, 0.5);;
+        }
     }
 </style>

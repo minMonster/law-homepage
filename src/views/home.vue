@@ -2,24 +2,22 @@
 <template>
     <div class='home'>
         <div class="banner">
-            <p>This is an advertising slogan, to be </p>
-            <p> determined.This is the gathering place of</p>
-            <p> lawyers all over the world.</p>
+            <p>Help you find the most cost-effective </p>
+            <p>intellectual property law firm</p>
         </div>
         <div class="region-country container">
             <p class="region-country-title">Region/Country</p>
             <div class="region-country-list">
-                <template v-for="(area, index) in areas">
-                    <div class="areas" v-if="index < 4">
-                        <div class="area-name">
-                            {{area.name}}
-                        </div>
-                        <a @click="$router.push({path: '/list-page', query: {country: item._id + '___' + item.name}})"
-                           v-for="item in area.country" :key="item._id">{{item.name}}</a>
+                <template v-for="numItem in 5">
+                    <div class="areas" :key="numItem.id">
+                        <template v-for="(item, index) in areas[0].country">
+                            <a class="ell" @click="$router.push({path: '/list-page', query: {country: item._id + '___' + item.name}})"
+                                v-if="index < (numItem*4) && index >= (numItem*4 - 4)" :key="item._id">{{item.shorthand}}</a>
+                        </template>
                     </div>
                 </template>
             </div>
-            <p class="more" v-if="areas.length > 3">more</p>
+            <p class="more" @click="$router.push({path: '/list-page'})">more</p>
         </div>
         <company-message>
         </company-message>
@@ -38,7 +36,7 @@
     created () {
       const loading = this.$loading()
 
-      Api.get('/area-list').then(res => {
+      Api.get('/area-list?area_name=HOT').then(res => {
         this.areas = res.data.data
         loading.close()
       })
@@ -65,7 +63,7 @@
             background-repeat: no-repeat;
             padding-top: 285px;
             font-size: 40px;
-            line-height: 41px;
+            line-height: 60px;
             color: #fff;
             text-align: center;
             img {
@@ -102,6 +100,7 @@
                 display: block;
                 margin: 0 auto;
                 margin-top: 60px;
+                cursor:pointer;
                 font-size: 20px;
                 padding: 0;
                 color: #666;
@@ -131,8 +130,10 @@
                         border-radius: 30px;
                     }
                     a {
+                        max-width: 160px;
                         color: #fff;
                         font-size: 20px;
+                        cursor:pointer;
                         line-height: 33px;
                         &:hover {
                             color: #2243E3;

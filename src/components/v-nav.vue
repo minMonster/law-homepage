@@ -5,9 +5,8 @@
             AntSrch
         </a>
         <div class="navbar-lists">
-            <a href="/contact-us">contact us</a>
-            <a href="/about-us">about us</a>
-            <a @click="$router.push({path: 'list-page'})">List page</a>
+            <a href="/contact-us">CONTACT US</a>
+            <a @click="$router.push({path: 'list-page'})">FIND A LAWFIRM</a>
         </div>
     </div>
 </template>
@@ -38,7 +37,8 @@
             display: flex;
             justify-content: flex-end;
             a {
-                font-size: 24px;
+                cursor:pointer;
+                font-size: 22px;
                 margin-right: $container-padding;
                 color: #fff;
             }
