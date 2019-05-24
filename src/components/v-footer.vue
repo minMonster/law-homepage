@@ -18,6 +18,10 @@
                 </p>
             </div>
         </div>
+        <div class="container for-record">
+            <img width="20" height="20" src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="">
+            <a target="_blank" href="http://www.beian.miit.gov.cn">粤ICP备19050348号</a>
+        </div>
     </div>
 </template>
 
@@ -33,6 +37,7 @@
             display: flex;
             height: 100%;
             padding: 90px 0;
+            padding-bottom: 25px;
             .l-box{
                 display: flex;
                 flex-direction: column;
@@ -64,6 +69,13 @@
                     padding-top: 40px;
                     margin-top: 30px;
                 }
+            }
+        }
+        .container.for-record {
+            padding: 0;
+            padding-bottom: 70px;
+            a {
+                color: #666666;
             }
         }
     }
